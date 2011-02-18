@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Window Buddy</string>
+	<key>ordering</key>
+	<array>
+		<string>BA1C3449-8724-42D4-9E11-2196FF17C2FD</string>
+		<string>70B7CF16-C64C-46B6-A7CD-26D46C38C984</string>
+		<string>45D2917B-133D-49A1-A405-2531B3FF8C2B</string>
+		<string>3309050D-06AC-4898-BD2C-68FF7467987B</string>
+		<string>60F9BFED-A047-4CF6-A5E7-C8C7A54F3321</string>
+		<string>D0F49A67-8546-4A3C-B8AD-A15BD8E6F5EF</string>
+		<string>DAB7CE17-B153-4D4D-82AB-BA36E48CE455</string>
+		<string>FF5F5EE8-ADAE-4BBC-8B97-2E79C6ECEA59</string>
+		<string>316380AA-2E7F-4561-80C5-D137CA66CBAA</string>
+	</array>
+	<key>uuid</key>
+	<string>C1B27BB9-10DA-4E1D-BAB0-B2EDA9E81FC3</string>
+</dict>
+</plist>

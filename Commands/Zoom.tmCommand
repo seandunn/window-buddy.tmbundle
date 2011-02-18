@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># Personally I define a system-wide window Zoom shortcut in Keyboard &amp; Mouse preferences
+# but incase you don't want to do that here a mapping just for TextMate
+
+"$TMTOOLS" do zoomWindow
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^@Z</string>
+	<key>name</key>
+	<string>Zoom</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>DAB7CE17-B153-4D4D-82AB-BA36E48CE455</string>
+</dict>
+</plist>

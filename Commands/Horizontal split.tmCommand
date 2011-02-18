@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+screen_dimentions = `"$TMTOOLS" get mainScreenSize`
+screen_width = screen_dimentions.split(',').first.to_i
+screen_height = screen_dimentions.split(',').last.to_i
+
+new_height = (screen_height / 2) - 1
+# Set original project window size
+`"$TMTOOLS" set windowSize '{width=#{screen_width};height=#{new_height};}'`
+`"$TMTOOLS" set windowOrigin '{x=1;y=#{screen_height};}'`
+
+# Get the original line number
+
+# Needs to select a file in the project draw first!
+`"$TMTOOLS" do openFileInNewWindow`
+
+# Set new window size
+`"$TMTOOLS" set windowSize '{width=#{screen_width};height=#{new_height - 50};}'`
+
+
+
+# Set new origin
+new_y_origin = screen_height - new_height
+`"$TMTOOLS" set windowOrigin '{x=1;y=1;}'`
+
+line_number = `echo $TM_LINE_NUMBER`
+#`"$TMTOOLS" set caretTo '{line=#{line_number};}'`</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^`</string>
+	<key>name</key>
+	<string>Horizontal split</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>uuid</key>
+	<string>70B7CF16-C64C-46B6-A7CD-26D46C38C984</string>
+</dict>
+</plist>

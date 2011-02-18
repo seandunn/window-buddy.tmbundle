@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+screen_dimentions = `"$TMTOOLS" get mainScreenSize`
+screen_width = screen_dimentions.split(',').first.to_i
+screen_height = screen_dimentions.split(',').last.to_i
+
+window_origin_and_size = `"$TMTOOLS" get windowOriginAndSize`
+
+window_x_origin = window_origin_and_size.split(',')[0].to_i
+window_width = window_origin_and_size.split(',')[2].to_i
+window_height = window_origin_and_size.split(',')[3].to_i
+
+new_height = (screen_height / 2) - 25
+
+
+# Set new window size
+`"$TMTOOLS" set windowSize '{width=#{window_width};height=#{new_height};}'`
+
+# Set new origin
+puts `"$TMTOOLS" set windowOrigin '{x=#{window_x_origin};y=#{screen_height};}'`
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^~</string>
+	<key>name</key>
+	<string>Snap top - Half height</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>uuid</key>
+	<string>45D2917B-133D-49A1-A405-2531B3FF8C2B</string>
+</dict>
+</plist>
