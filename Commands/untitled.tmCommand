@@ -5,7 +5,11 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>"$TMTOOLS" show alertSheet '{informativeText="This is only a messageTitle="This is a message";buttonTitles=(OK,Cancel);alertStyle=critical;}'</string>
+	<string>#!/usr/bin/env ruby
+
+require 'appscript'
+
+puts ENV['']</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>

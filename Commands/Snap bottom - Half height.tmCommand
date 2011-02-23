@@ -23,9 +23,10 @@ new_height = (screen_height / 2) - 25
 # Set new window size
 `"$TMTOOLS" set windowSize '{width=#{window_width};height=#{new_height};}'`
 
+
+window_x_origin = [window_x_origin, 1].max
 # Set new origin
-puts `"$TMTOOLS" set windowOrigin '{x=#{window_x_origin};y=#{screen_height};}'`
-</string>
+`"$TMTOOLS" set windowOrigin '{x=#{window_x_origin};y=#{screen_height};}'`</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
