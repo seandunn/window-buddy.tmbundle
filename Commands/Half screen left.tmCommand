@@ -24,7 +24,7 @@ puts `"$TMTOOLS" set windowOrigin '{x=1;y=150;}'`
 	<key>keyEquivalent</key>
 	<string>^~</string>
 	<key>name</key>
-	<string>Snap left - Half full screen</string>
+	<string>Snap left - half full screen</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>uuid</key>

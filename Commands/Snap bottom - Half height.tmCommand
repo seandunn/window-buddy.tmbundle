@@ -32,7 +32,7 @@ window_x_origin = [window_x_origin, 1].max
 	<key>keyEquivalent</key>
 	<string>^~</string>
 	<key>name</key>
-	<string>Snap top - Half height</string>
+	<string>Snap top - half height</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>uuid</key>

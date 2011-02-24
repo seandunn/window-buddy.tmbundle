@@ -36,7 +36,7 @@ line_number = `echo $TM_LINE_NUMBER`
 	<key>keyEquivalent</key>
 	<string>^`</string>
 	<key>name</key>
-	<string>Vertical split</string>
+	<string>Vertical split - half screen</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>uuid</key>
