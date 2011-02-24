@@ -22,7 +22,7 @@ new_width = (screen_width / 2) - 1
 `"$TMTOOLS" do openFileInNewWindow`
 
 # Set new window size
-`"$TMTOOLS" set windowSize '{width=#{new_width};height=#{screen_height - 71};}'`
+`"$TMTOOLS" set windowSize '{width=#{new_width};height=#{screen_height - 72};}'`
 
 new_x_origin = screen_width - new_width
 new_y_origin = 1
