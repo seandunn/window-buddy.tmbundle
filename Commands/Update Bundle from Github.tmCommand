@@ -5,19 +5,18 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
-
-require 'rubygems'
-require 'appscript'
-
-textmate = Appscript.app(ENV['TM_APP_PATH'])</string>
+	<string># just to remind you of some useful environment variables
+# see Help / Environment Variables for the full list
+echo File: "$TM_FILEPATH"
+echo Word: "$TM_CURRENT_WORD"
+echo Selection: "$TM_SELECTED_TEXT"</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>name</key>
-	<string>untitled</string>
+	<string>Update Bundle from Github</string>
 	<key>output</key>
-	<string>showAsTooltip</string>
+	<string>replaceSelectedText</string>
 	<key>uuid</key>
-	<string>316380AA-2E7F-4561-80C5-D137CA66CBAA</string>
+	<string>CD9B5542-470A-4195-8A75-9B297E428720</string>
 </dict>
 </plist>

@@ -5,9 +5,8 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string> L=$("$TMTOOLS" get openDocumentFiles '{format=mate;}')
-"$TMTOOLS" do closeAllFloatingDocumentWindows
-eval mate "$L" untitled</string>
+	<string>"$TMTOOLS" close allFloatingDocumentWindows
+mate "/Users/sd9/projects/oracle_cache/loaders/$TM_FILENAME"</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
@@ -15,7 +14,7 @@ eval mate "$L" untitled</string>
 	<key>name</key>
 	<string>Move floating window into project</string>
 	<key>output</key>
-	<string>showAsTooltip</string>
+	<string>openAsNewDocument</string>
 	<key>uuid</key>
 	<string>FF5F5EE8-ADAE-4BBC-8B97-2E79C6ECEA59</string>
 </dict>

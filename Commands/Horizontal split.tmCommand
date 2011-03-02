@@ -11,18 +11,25 @@ screen_dimentions = `"$TMTOOLS" get mainScreenSize`
 screen_width = screen_dimentions.split(',').first.to_i
 screen_height = screen_dimentions.split(',').last.to_i
 
+window_origin_and_size = `"$TMTOOLS" get windowOriginAndSize`
+
+window_x_origin = window_origin_and_size.split(',')[0].to_i
+window_width = window_origin_and_size.split(',')[2].to_i
+window_height = window_origin_and_size.split(',')[3].to_i
+
 new_height = (screen_height / 2) - 1
 # Set original project window size
-`"$TMTOOLS" set windowSize '{width=#{screen_width};height=#{new_height};}'`
+`"$TMTOOLS" set windowSize '{width=#{window_width};height=#{new_height};}'`
 `"$TMTOOLS" set windowOrigin '{x=1;y=#{screen_height};}'`
 
 # Get the original line number
+line_number = ENV['TM_LINE_NUMBER']
 
 # Needs to select a file in the project draw first!
 `"$TMTOOLS" do openFileInNewWindow`
 
 # Set new window size
-`"$TMTOOLS" set windowSize '{width=#{screen_width};height=#{new_height - 50};}'`
+`"$TMTOOLS" set windowSize '{width=#{window_width};height=#{new_height - 50};}'`
 
 
 
@@ -30,8 +37,8 @@ new_height = (screen_height / 2) - 1
 new_y_origin = screen_height - new_height
 `"$TMTOOLS" set windowOrigin '{x=1;y=1;}'`
 
-line_number = `echo $TM_LINE_NUMBER`
-#`"$TMTOOLS" set caretTo '{line=#{line_number};}'`</string>
+
+`"$TMTOOLS" set caretTo '{line=#{line_number};}'`</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>

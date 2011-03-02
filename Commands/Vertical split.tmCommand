@@ -6,14 +6,13 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
+require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
-screen_dimentions = `"$TMTOOLS" get mainScreenSize`
-screen_width = screen_dimentions.split(',').first.to_i
-screen_height = screen_dimentions.split(',').last.to_i
+screen = WindowBuddy::MainScreen.instance
 
-new_width = (screen_width / 2) - 1
+new_width = screen.half_width - 1
 # Set original project window size
-`"$TMTOOLS" set windowSize '{width=#{new_width};height=#{screen_height};}'`
+`"$TMTOOLS" set windowSize '{width=#{new_width};height=#{screen.height};}'`
 `"$TMTOOLS" set windowOrigin '{x=1;y=1;}'`
 
 # Get the original line number
@@ -22,9 +21,9 @@ new_width = (screen_width / 2) - 1
 `"$TMTOOLS" do openFileInNewWindow`
 
 # Set new window size
-`"$TMTOOLS" set windowSize '{width=#{new_width};height=#{screen_height - 72};}'`
+`"$TMTOOLS" set windowSize '{width=#{new_width};height=#{screen.height - 72};}'`
 
-new_x_origin = screen_width - new_width
+new_x_origin = screen.width - new_width
 new_y_origin = 1
 # Set new origin
 `"$TMTOOLS" set windowOrigin '{x=#{new_x_origin};y=#{new_y_origin};}'`
