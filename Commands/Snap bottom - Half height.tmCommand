@@ -6,27 +6,19 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
+require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
-screen_dimentions = `"$TMTOOLS" get mainScreenSize`
-screen_width = screen_dimentions.split(',').first.to_i
-screen_height = screen_dimentions.split(',').last.to_i
-
-window_origin_and_size = `"$TMTOOLS" get windowOriginAndSize`
-
-window_x_origin = window_origin_and_size.split(',')[0].to_i
-window_width = window_origin_and_size.split(',')[2].to_i
-window_height = window_origin_and_size.split(',')[3].to_i
-
-new_height = (screen_height / 2) - 25
+screen     = WindowBuddy::MainScreen.instance
+window     = WindowBuddy::CurrentWindow.new
+new_height = screen.half_height - 25
 
 
 # Set new window size
-`"$TMTOOLS" set windowSize '{width=#{window_width};height=#{new_height};}'`
+window.origin!(window.width,new_height)
 
-
-window_x_origin = [window_x_origin, 1].max
+window_x_origin = [window.origin_x, 1].max
 # Set new origin
-`"$TMTOOLS" set windowOrigin '{x=#{window_x_origin};y=#{screen_height};}'`</string>
+window.origin!(window_x_origin, screen.height)</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>

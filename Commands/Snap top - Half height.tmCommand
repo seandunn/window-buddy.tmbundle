@@ -8,17 +8,16 @@
 	<string>#!/usr/bin/env ruby
 	require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
-screen = WindowBuddy::MainScreen.instance
-
-window = WindowBuddy::CurrentWindow.new
-
-new_height = (screen.height / 2) - 25
+screen     = WindowBuddy::MainScreen.instance
+window     = WindowBuddy::CurrentWindow.new
+new_height = screen.half_height - 25
 
 # Set new origin
-`"$TMTOOLS" set windowOrigin '{x=#{window.origin_x};y=1;}'`
+window.origin!(window.origin_x, 1)
 
 # Set new window size
-`"$TMTOOLS" set windowSize '{width=#{window.width};height=#{new_height};}'`</string>
+window.size!(window.width, new_height)
+</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>

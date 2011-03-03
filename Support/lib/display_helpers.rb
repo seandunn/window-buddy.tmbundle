@@ -34,7 +34,7 @@ module WindowBuddy
   
   class CurrentWindow
     include TmBaseWindow
-    attr_reader :origin_x
+    attr_reader :origin_x, :origin_y
     
     def initialize
       @dimentions = `"$TMTOOLS" get windowOriginAndSize`
@@ -42,6 +42,14 @@ module WindowBuddy
       @origin_y   = dimentions[1]
       @width      = dimentions[2]
       @height     = dimentions[3]
+    end
+    
+    def origin!(new_x, new_y)
+      `"$TMTOOLS" set windowOrigin '{x=#{new_x};y=#{new_y};}'`
+    end
+    
+    def size!(new_x, new_y)
+      `"$TMTOOLS" set windowSize '{width=#{new_x};height=#{new_y};}'`
     end
   end
 
