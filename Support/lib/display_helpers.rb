@@ -67,6 +67,10 @@ module WindowBuddy
     def size!(new_x, new_y)
       `"$TMTOOLS" set windowSize '{width=#{new_x};height=#{new_y};}'`
     end
+    
+    def zoom!
+      `"$TMTOOLS" do zoomWindow`
+    end
   end
 
 end

@@ -14,7 +14,7 @@ new_height = screen.half_height - 25
 
 
 # Set new window size
-window.origin!(window.width,new_height)
+window.size!(window.width,new_height)
 
 window_x_origin = [window.origin_x, 1].max
 # Set new origin

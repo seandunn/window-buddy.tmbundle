@@ -6,18 +6,15 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
+require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
-screen_dimentions = `"$TMTOOLS" get mainScreenSize`
-screen_width = screen_dimentions.split(',').first.to_i
-screen_height = screen_dimentions.split(',').last.to_i
+screen         = WindowBuddy::MainScreen.instance
+project_window = WindowBuddy::CurrentWindow.new
+new_width      = screen.half_width - 1
 
-new_width = (screen_width / 2) - 1
-
-# Set new window size
-`"$TMTOOLS" set windowSize '{width=#{new_width};height=#{screen_height};}'`
-
-# Set new origin
-puts `"$TMTOOLS" set windowOrigin '{x=1;y=150;}'`
+# Set new window size and origin
+project_window.size!(new_width,screen.height)
+project_window.origin!(1,150)
 </string>
 	<key>input</key>
 	<string>selection</string>

@@ -5,11 +5,11 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string># Personally I define a system-wide window Zoom shortcut in Keyboard &amp; Mouse preferences
-# but incase you don't want to do that here a mapping just for TextMate
+	<string>#!/usr/bin/env ruby
+require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
-"$TMTOOLS" do zoomWindow
-</string>
+current_window = WindowBuddy::CurrentWindow.new
+current_window.zoom!</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
@@ -17,7 +17,7 @@
 	<key>name</key>
 	<string>Zoom</string>
 	<key>output</key>
-	<string>discard</string>
+	<string>showAsTooltip</string>
 	<key>uuid</key>
 	<string>DAB7CE17-B153-4D4D-82AB-BA36E48CE455</string>
 </dict>
