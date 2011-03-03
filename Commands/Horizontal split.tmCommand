@@ -20,13 +20,11 @@ project_window.origin!(1,screen.height)
 # Needs to select a file in the project draw first!
 new_window = project_window.new_window
 
-# Set new window size
-new_window.size!(project_window.width, new_height - 50)
-
-# Set new origin
-new_window.origin!(1,1)
-
-
+if new_window
+  # Set new window size and origin...
+  new_window.size!(project_window.width, new_height - 50)
+  new_window.origin!(1,1)
+end
 </string>
 	<key>input</key>
 	<string>none</string>
