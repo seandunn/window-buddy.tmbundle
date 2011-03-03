@@ -26,8 +26,8 @@ module WindowBuddy
     
     def initialize
       @dimentions = `"$TMTOOLS" get mainScreenSize`
-      @width  = dimentions.first
-      @height = dimentions.last
+      @width      = dimentions.first
+      @height     = dimentions.last
     end
 
   end
@@ -37,11 +37,27 @@ module WindowBuddy
     attr_reader :origin_x, :origin_y
     
     def initialize
-      @dimentions = `"$TMTOOLS" get windowOriginAndSize`
-      @origin_x   = dimentions[0]
-      @origin_y   = dimentions[1]
-      @width      = dimentions[2]
-      @height     = dimentions[3]
+      @dimentions  = `"$TMTOOLS" get windowOriginAndSize`
+      @origin_x    = dimentions[0]
+      @origin_y    = dimentions[1]
+      @width       = dimentions[2]
+      @height      = dimentions[3]
+      @line_number = ENV['TM_LINE_NUMBER']
+    end
+    
+    def new_window
+      open_file_in_new_window!
+      new_window = self.class.new
+      new_window.move_to_line_number!
+      new_window
+    end
+    
+    def open_file_in_new_window!
+    `"$TMTOOLS" do openFileInNewWindow`
+    end
+    
+    def move_to_line_number!
+      `"$TMTOOLS" set caretTo '{line=#{@line_number};}'`
     end
     
     def origin!(new_x, new_y)
