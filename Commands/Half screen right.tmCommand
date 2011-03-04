@@ -11,11 +11,10 @@ require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 screen         = WindowBuddy::MainScreen.instance
 project_window = WindowBuddy::CurrentWindow.new
 new_width      = screen.half_width - 1
+new_x_origin   = screen.width - new_width
 
-# Set new window size
+# Set new window size and origin...
 project_window.size!(new_width,screen.height)
-new_x_origin = screen.width - new_width
-# Set new origin
 project_window.origin!(new_x_origin,150)
 </string>
 	<key>input</key>
