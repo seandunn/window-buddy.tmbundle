@@ -70,8 +70,8 @@ module WindowBuddy
     def new_window
       if open_file_in_new_window
         new_window        = self.class.new
-        self.project_directory = ENV['TM_PROJECT_DIRECTORY']
         new_window.move_to_line_number!
+        self.project_directory = ENV['TM_PROJECT_DIRECTORY']
         new_window
       else
         nil
