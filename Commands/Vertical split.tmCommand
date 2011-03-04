@@ -8,6 +8,8 @@
 	<string>#!/usr/bin/env ruby
 require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
+WindowBuddy.check_for_project!
+
 screen         = WindowBuddy::MainScreen.instance
 project_window = WindowBuddy::CurrentWindow.new
 new_width      = screen.half_width - 1
@@ -18,15 +20,12 @@ project_window.origin!(1,1)
 
 # Get the original line number
 
-# Needs to select a file in the project draw first!
-new_window = project_window.new_window
+new_window   = project_window.new_window
+new_x_origin = screen.width - new_width
 
-if new_window
-  # Set new window size and origin
-  new_window.size!(new_width, (screen.height - 72))
-  new_x_origin = screen.width - new_width
-  new_window.origin!(new_x_origin, 1)
-end
+# Set new window size and origin
+new_window.size!(new_width, (screen.height - 72))
+new_window.origin!(new_x_origin, 1)
 
 </string>
 	<key>input</key>

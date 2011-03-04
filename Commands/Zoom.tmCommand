@@ -8,8 +8,7 @@
 	<string>#!/usr/bin/env ruby
 require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
-current_window = WindowBuddy::CurrentWindow.new
-current_window.zoom!</string>
+WindowBuddy::CurrentWindow.new.zoom!</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>

@@ -5,16 +5,22 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>"$TMTOOLS" close allFloatingDocumentWindows
-mate "/Users/sd9/projects/oracle_cache/loaders/$TM_FILENAME"</string>
+	<string>#!/usr/bin/env ruby
+require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
+
+window = WindowBuddy::CurrentWindow.new
+window.dock_into_project!
+
+project_window = WindowBuddy::CurrentWindow.new
+project_window.zoom!</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
 	<string>^`</string>
 	<key>name</key>
-	<string>Move floating window into project</string>
+	<string>Move window into project</string>
 	<key>output</key>
-	<string>openAsNewDocument</string>
+	<string>showAsTooltip</string>
 	<key>uuid</key>
 	<string>FF5F5EE8-ADAE-4BBC-8B97-2E79C6ECEA59</string>
 </dict>

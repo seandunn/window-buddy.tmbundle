@@ -6,8 +6,9 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
-
 require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
+
+WindowBuddy.check_for_project!
 
 screen         = WindowBuddy::MainScreen.instance
 project_window = WindowBuddy::CurrentWindow.new
@@ -17,14 +18,11 @@ new_height     = screen.half_height - 10
 project_window.size!(project_window.width,new_height)
 project_window.origin!(1,screen.height)
 
-# Needs to select a file in the project draw first!
 new_window = project_window.new_window
 
-if new_window
-  # Set new window size and origin...
-  new_window.size!(project_window.width, new_height - 50)
-  new_window.origin!(1,1)
-end
+# Set new window size and origin...
+new_window.size!(project_window.width, new_height - 50)
+new_window.origin!(1,1)
 </string>
 	<key>input</key>
 	<string>none</string>
