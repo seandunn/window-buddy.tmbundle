@@ -12,7 +12,7 @@ window = WindowBuddy::CurrentWindow.new
 window.dock_into_project!
 
 project_window = WindowBuddy::CurrentWindow.new
-project_window.zoom!</string>
+#project_window.zoom!</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>

@@ -2,14 +2,20 @@ require 'singleton'
 require "#{ENV['TM_SUPPORT_PATH']}/lib/escape.rb"
 require 'rubygems'
 require 'appscript'
+require 'ruby-debug'
 
 module WindowBuddy
   
   def self.check_for_project!
     abort("Sorry, only available within a project") unless ENV['TM_PROJECT_DIRECTORY']
     
-    # I hate having to check for this but I haven't found a way to automate this yet...
-    abort("Please Reveal File in Project first - ^⌘R") unless ENV['TM_SELECTED_FILE']
+    # If the current file isn't selected in project panel reveal it...
+    reveal_in_project! unless ENV['TM_SELECTED_FILE'] == ENV['TM_FILEPATH']
+  end
+  
+  def self.reveal_in_project!
+    Appscript.app('System Events').keystroke('r', :using => [:command_down, :control_down])
+    abort("Selecting current file - Please run the command again.")
   end
   
   module TmBaseWindow
@@ -59,6 +65,7 @@ module WindowBuddy
       tm = Appscript.app(ENV['TM_APP_PATH'])
       tm.windows.first.close(:saving => :ask)
       `"#{ENV['TM_SUPPORT_PATH']}/bin/mate" #{e_sh(ENV['TM_FILEPATH'])}`
+      self.zoom!
     end
 
     
@@ -69,7 +76,7 @@ module WindowBuddy
 
     def new_window
       if open_file_in_new_window
-        new_window        = self.class.new
+        new_window = self.class.new
         new_window.move_to_line_number!
         self.project_directory = ENV['TM_PROJECT_DIRECTORY']
         new_window
