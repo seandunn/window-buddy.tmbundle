@@ -2,7 +2,6 @@ require 'singleton'
 require "#{ENV['TM_SUPPORT_PATH']}/lib/escape.rb"
 require 'rubygems'
 require 'appscript'
-require 'ruby-debug'
 
 module WindowBuddy
   
