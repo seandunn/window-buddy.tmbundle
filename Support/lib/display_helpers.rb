@@ -10,7 +10,7 @@ module WindowBuddy
     abort("Sorry, only available within a project") unless ENV['TM_PROJECT_DIRECTORY']
     
     # If the current file isn't selected in project panel reveal it...
-    reveal_in_project! unless ENV['TM_SELECTED_FILE'] == ENV['TM_FILEPATH']
+    reveal_in_project! unless ENV['TM_SELECTED_FILE']
   end
   
   def self.reveal_in_project!
