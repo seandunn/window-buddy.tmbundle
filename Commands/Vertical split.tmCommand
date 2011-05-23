@@ -8,7 +8,7 @@
 	<string>#!/usr/bin/env ruby
 require "#{ENV["TM_BUNDLE_SUPPORT"]}/lib/display_helpers.rb"
 
-sys_events = Appscript.app('System Events')
+#sys_events = Appscript.app('System Events')
 WindowBuddy.check_for_project!
 
 screen         = WindowBuddy::MainScreen.instance
@@ -28,7 +28,7 @@ new_x_origin = screen.width - new_width
 new_window.size!(new_width, (screen.height - 72))
 new_window.origin!(new_x_origin, 1)
 
-sys_events.keystroke('`', :using =&gt; :command_down)</string>
+#sys_events.keystroke('`', :using =&gt; :command_down)</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>

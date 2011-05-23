@@ -1,7 +1,5 @@
 require 'singleton'
 require "#{ENV['TM_SUPPORT_PATH']}/lib/escape.rb"
-require 'rubygems'
-require 'appscript'
 
 module WindowBuddy
   
@@ -13,7 +11,7 @@ module WindowBuddy
   end
   
   def self.reveal_in_project!
-    Appscript.app('System Events').keystroke('r', :using => [:command_down, :control_down])
+    `osascript -e 'tell application "System Events" to keystroke "r" using {command down, control down}'`
     abort("Selecting current file - Please run the command again.")
   end
   
@@ -61,8 +59,8 @@ module WindowBuddy
     
     def dock_into_project!
       abort("Tab already docked") if ENV['TM_PROJECT_DIRECTORY']
-      tm = Appscript.app(ENV['TM_APP_PATH'])
-      tm.windows.first.close(:saving => :ask)
+      # tm = Appscript.app(ENV['TM_APP_PATH'])
+      # tm.windows.first.close(:saving => :ask)
       `"#{ENV['TM_SUPPORT_PATH']}/bin/mate" #{e_sh(ENV['TM_FILEPATH'])}`
       self.zoom!
     end
